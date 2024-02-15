@@ -12,6 +12,14 @@
             <li>en forma de lista</li> <!--Sirve para hacer listas-->
         </p>
         <n1>Aqui se muetra</n1> <!--El primer texto que se miestra en pantalla-->
+
+        //De esta forma se pone el color al fondo de la paguina
+        <style>
+           body {
+                background-color: lightcoral; 
+            }
+        </style>
+
     </head>
     <body>
         <script>
@@ -26,13 +34,145 @@
 
             console.log(nombre.length,
             apellido1.length,
-            apellido2.length); //length sirve para poder visualisar el numero de caracteres que se uso en la cadena que escribiste
+            apellido2.length); //.length sirve para poder visualisar el numero de caracteres que se uso en la cadena que escribiste
 
             console.log(nombre.toLowerCase(),
             apellido1.toUpperCase(),
-            apellido2.toLowerCase()); /*Estas dos funciones sirven para poner en mayusculas
-                                        o minusculas lo que escribiste en las cadenas*/
+            apellido2.toLowerCase(),
+            hola.includes("no"),
+            hola.trim(), //Esta funcion sirve para no mostrar los espacios entre el texto
+            hola.split(" ") //Sirve para separar cada palabra y espacio entre comillas
+            ); /*Estas dos funciones sirven para poner en mayusculas
+                o minusculas lo que escribiste en las cadenas, .includes sirve para saber si el texto
+                incluye alguna palabra y devuelve un "false" o un "true"*/
         
+            
+            let nom = "Axel Ivan";
+            let ape = "Martinez";
+
+            //Concatencion
+            let saludo = "Hola mi nombre es " + nom + " " + ape + ".";
+            console.log(saludo);
+
+            //Interpolacion de variables
+            //Template string
+
+            let saludo2 = `Hola soy ${nom} ${ape}.`; //Esta funciona como otra forma para concatenar las plabras
+            console.log(saludo2);
+
+            let ul = "<ul><li>verano</li><li>primavera</li><li>otoño</li><li>invierno</li></ul>";
+            console.log(ul);
+
+            let ul2 = `
+            <ul>
+                <li>verano</li>
+                <li>primavera</li>
+                <li>otoño</li>
+                <li>invierno</li>
+            </ul>`; 
+            console.log(ul2); /*Las comillas sirven para poder poner el texto de cualquier
+                                forma como en ileras, columnas, viñetas*/ 
+
+            let a = 1;
+            let b = new Number(2); /*Este es el contructor de los caracteres con numeros
+                                     muestra el prototipo y el valor primitivo (el numero)*/
+            let c = 3.1416;
+            let d = "5.6";
+
+            console.log(a,b);
+            console.log(c.toFixed(1)); /*sirve para decir cuantos numeros decimales queremos
+                                         dependiendo de esto puede redondear cantidades*/
+            console.log(parseInt(c)); /*Sirve para solo imprimir la parte entera de un 
+                                        numero*/
+            console.log(parseFloat(c)); /*Sirve para que imprima el numero con la parte de
+                                         de los decimales*/
+            console.log(typeof c, typeof d); /*Sirve para decirte que tipo de dato es
+                                    Ya sea "string" o "Number"*/
+            console.log(c + d); //Aqui esta concatenando el numero y el texto
+            console.log(c + parseInt(d)); /*Aqui lo que se esta haciendo es un
+            "casting" o cambio de tipo de dato, cambiando la parte de string a number
+            para poder hacer la suma con un numero que si este en formato "number"*/
+
+
+            //Valores boolean
+            /*los valores buleanos son valores que tienden a verdadero o falso
+            hay diferentes valores de estos, que se pueden encontrar en la paguina
+            de MDN como valores "Truthy" y "Falsy"*/
+
+            let verdadero = true;
+            let falso = false;
+
+            let v = Boolean(true);//Estos valores se pueden usar de esta manera, aunque
+            let f = Boolean(false); /*aunque no es una manera eficiente ya que es más
+            texto al usar el contructor del balor boolean*/
+
+            console.log(verdadero,falso,v,f); /*Esto lo que te regresara como texto es
+            si es verdadero o falso sin más*/
+
+            //Otros ejemplos de esto son los siguentes
+                //falsos
+                    console.log(Boolean(0));
+                    console.log(Boolean(""));
+                //verdaderos
+                    console.log(Boolean(-7));
+                    console.log(Boolean(" "));
+
+            //Undefined, null & NaN
+            //Estos son valores vacios
+
+                //Undefined
+                    let indefinido; /*Este valor es vacio, pero lo asigna
+                    JavaScript al no encontrar ningun valor en la variable o sea que
+                    no fue inicializada*/
+                    console.log(indefinido);
+                //Null
+                    let nulo = null;/*Este valor También es vacio pero con la
+                    diferencia de que lo es intencionalmente ya que el prgramador
+                    puede asignarle el valor nulo*/
+                    console.log(nulo);
+                //NaN - Not a number
+                let noEsUnNumero = "hola" * 3.14;/*Aqui es caundo aparece el valor
+                NaN lo cual nos dice que no puedes hacer este tipo de operaciones
+                ya que no es un valor numerico */
+                console.log(noEsUnNumero);
+
+            //Funciones
+            /*
+            Una funcion es un bloque de código autocontenido, que se puede
+            definir una vez y ejecutar en cualquier momento.
+            Opcionalmente una funcion puede aceptar parametros y devolver
+            un valor.
+
+            */
+
+                //Funcion declarada
+
+                /*function estoEsUnaFuncion(){
+                    console.log("uno");
+                    console.log("dos");
+                    console.log("tres");
+                }*/
+                
+                //invocacion de la funcion 
+                
+                 //estoEsUnaFuncion(); //para invocar a una funcion siempre se tiene que poner los parentesis
+
+                function unaFuncionQueDevuelveValor(){
+                    console.log("uno");
+                    console.log("dos");
+                    return "La funcion ha retornado una cadena de caracteres";
+                    console.log("tres");
+                } //Todo lo que se encuentre despues de un return se ignora
+
+                // let valorDeFuncion = unaFuncionQueDevuelveValor();
+                // console.log(valorDeFuncion);
+
+                function saludar(nombre,edad){
+                    console.log(`Hola mi nombre es ${nombre} y tengo ${edad} años`);
+                } //Se usan las backtip para poder hacer uso de las tamplate strings lo que nos ayuda a poder concatenar las palabras de nombre y edad
+
+                saludar("Ivan",21);
         </script>
+        
     </body>
 </html>
